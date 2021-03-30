@@ -21,6 +21,7 @@ function AdminLayout({ children }) {
   return (
     <Layout>
       <Sider
+        className="sidebar"
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
