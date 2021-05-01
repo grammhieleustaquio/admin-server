@@ -11,11 +11,14 @@ import {
   Modal,
 } from "antd";
 import {
-  UnorderedListOutlined,
+  EditOutlined,
+  DeleteOutlined,
   ArrowLeftOutlined,
   PlusOutlined,
 } from "@ant-design/icons";
 
+import AddRoute from "./AddRoute";
+import EditRoute from "./EditRoute";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 
@@ -26,6 +29,7 @@ function RouteList() {
   const [routeList, setRouteList] = useState([]);
   const [barangayData, setBarangayData] = useState([]);
   let [value, setValue] = useState();
+  const [dataFromModal, setDataFromModal] = useState("");
 
   useEffect(() => {
     value = dataHistory.location.pathname.split("/jeepney-routes/");
@@ -70,6 +74,16 @@ function RouteList() {
       .catch((error) => console.log(error));
   };
 
+  const modalClosed = () => {
+    console.log("Passed data from modal", dataFromModal);
+    axios.get("/api/v1/jeeproutes/").then((res) => {
+      //console.log(res);
+
+      let data = res.data;
+      setRouteList(data);
+    });
+  };
+
   const columns = [
     {
       title: "Point Number",
@@ -87,26 +101,23 @@ function RouteList() {
 
       render: (record) => (
         <Space size="middle">
-          <Button type="primary" className="modal-button-view">
-            <span className="desktop-view">
-              <UnorderedListOutlined /> Update Modal Here
-            </span>
-            <span className="mobile-view">
-              <UnorderedListOutlined />
-            </span>
-          </Button>
+          <EditRoute
+                  info={value}
+                  passedData={setDataFromModal}
+                  afterClosing={modalClosed}
+                />
           <Button
             type="danger"
-            className="modal-button-view"
+            className="modal-button"
             onClick={() => {
               deleteRoute(record.id);
             }}
           >
             <span className="desktop-view">
-              <ArrowLeftOutlined /> Delete
+              <DeleteOutlined/> Delete
             </span>
             <span className="mobile-view">
-              <ArrowLeftOutlined />
+            <DeleteOutlined />
             </span>
           </Button>
         </Space>
@@ -132,21 +143,17 @@ function RouteList() {
           </Space>
         </Col>
         <Col span={4}>
-          <Space direction="vertical">
-            <Button type="primary" className="modal-button-add">
-              <span className="desktop-view">
-                <PlusOutlined /> Add Route Here
-              </span>
-              <span className="mobile-view">
-                <PlusOutlined />
-              </span>
-            </Button>
-          </Space>
+          <AddRoute
+            info={value}
+            passedData={setDataFromModal}
+            afterClosing={modalClosed}
+          />
+
         </Col>
       </Row>
       <Divider>
         <Title level={4}>
-          Barangay{" "}
+          {/* Barangay{" "} */}
           {barangayData[0] == null ? " " : barangayData[0].barangayName} Route
           Points
         </Title>

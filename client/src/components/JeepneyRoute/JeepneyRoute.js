@@ -83,7 +83,7 @@ function JeepneyRoute() {
         </Space>
       </Row>
       <Divider>
-        <Title level={4}>Route List</Title>
+        <Title level={4}>Barangay Route List</Title>
       </Divider>
 
       <Row>

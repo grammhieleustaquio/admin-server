@@ -49,4 +49,23 @@ router.delete("/delete_route", (req, res) => {
     .catch((error) => console.log(error));
 });
 
+router.post("/update_route", (req, res) => {
+  let {
+    id,
+    barangayId,
+    pointNumber,
+    routeDescription
+  } = req.body;
+  console.log(req.body);
+
+  JeepRoute.update(
+    { barangayId, pointNumber, routeDescription },
+    { where: { id } }
+  )
+    .then((_res) => {
+      res.json(_res);
+    })
+    .catch((error) => console.log(error));
+});
+
 module.exports = router;

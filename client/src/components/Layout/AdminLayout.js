@@ -52,20 +52,23 @@ function AdminLayout({ children }) {
             <Menu.Item key="4">
               <Link to="/assigned-driver">Assign Drivers</Link>
             </Menu.Item>
+            <Menu.Item key="5">
+              <Link to="/jeepney-routes"> Jeepney Routes </Link>
+            </Menu.Item>
           </SubMenu>
 
-          <Menu.Item key="5" icon={<SnippetsOutlined />}>
+          <Menu.Item key="6" icon={<SnippetsOutlined />}>
             <Link to="/barangay-list"> Barangay List</Link>
           </Menu.Item>
-          <Menu.Item key="6" icon={<UserOutlined />}>
+          <Menu.Item key="7" icon={<UserOutlined />}>
             <Link to="/users-list"> Users List</Link>
           </Menu.Item>
-          <Menu.Item key="7" icon={<FundViewOutlined />}>
+          <Menu.Item key="8" icon={<FundViewOutlined />}>
             <Link to="/funfacts-list"> Fun Facts List</Link>
           </Menu.Item>
-          <Menu.Item key="8" icon={<FundViewOutlined />}>
+          {/* <Menu.Item key="9" icon={<FundViewOutlined />}>
             <Link to="/jeepney-routes"> Jeepney Routes </Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
       </Sider>
       <Layout>
