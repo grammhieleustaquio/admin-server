@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../database/database");
 
-const Barangay = db.define("barangays", {
+const JeepRoute = db.define("jeeproutes", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -9,22 +9,17 @@ const Barangay = db.define("barangays", {
     allowNull: false,
   },
 
-  barangayName: {
-    type: Sequelize.STRING,
+  barangayId: {
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
 
-  location: {
-    type: Sequelize.STRING,
+  pointNumber: {
+    type: Sequelize.INTEGER,
     allowNull: false,
   },
 
-  location: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-
-  barangayDescription: {
+  routeDescription: {
     type: Sequelize.TEXT("long"),
     allowNull: false,
   },
@@ -39,4 +34,4 @@ const Barangay = db.define("barangays", {
   },
 });
 
-module.exports = Barangay;
+module.exports = JeepRoute;

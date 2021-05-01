@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Table, Space, Input, Row, Col, Divider, Typography } from "antd";
-import axios from "axios";
+
 import Column from "antd/lib/table/Column";
 import ColumnGroup from "antd/lib/table/ColumnGroup";
 import DriversInfoModal from "./DriversInfoModal";
 import AddDriverModal from "./AddDriverModal";
 import AddDriverImageModal from "./AddDriverImageModal";
 import EditDriverModal from "./EditDriverModal";
+
+import axios from "axios";
 
 function DriversTableList() {
   const [drivers, setDrivers] = useState([]);
@@ -50,7 +52,6 @@ function DriversTableList() {
 
   return (
     <div class="drivers-table">
-
       <Row justify="space-between">
         <Col span={4}>
           <Space direction="vertical">
@@ -74,7 +75,6 @@ function DriversTableList() {
         <Title level={4}>List of Drivers</Title>
       </Divider>
 
-      
       <Row>
         <Table dataSource={drivers} scroll={{ x: 1000, y: 500 }} sticky>
           {/* <ColumnGroup title="Id" dataIndex="id" key="id"></ColumnGroup> */}

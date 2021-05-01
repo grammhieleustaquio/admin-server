@@ -22,6 +22,7 @@ app.use(fileUpload());
 app.use("/api/v1/auths", require("./routes/auth"));
 app.use("/api/v1/drivers", require("./routes/driver"));
 app.use("/api/v1/jeepneys", require("./routes/jeepney"));
+app.use("/api/v1/jeeproutes", require("./routes/jeeproute"));
 app.use("/api/v1/barangays", require("./routes/barangay"));
 app.use("/api/v1/images", require("./routes/image"));
 app.use("/api/v1/funfacts", require("./routes/funfact"));

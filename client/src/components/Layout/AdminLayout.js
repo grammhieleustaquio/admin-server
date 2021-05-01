@@ -21,7 +21,6 @@ function AdminLayout({ children }) {
   return (
     <Layout>
       <Sider
-        className="sidebar"
         breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
@@ -31,16 +30,14 @@ function AdminLayout({ children }) {
           console.log(collapsed, type);
         }}
       >
-        <div className="logo"/>
-        <Imaged/>
+        <div className="logo" />
+        <Imaged />
         <Menu
           className="sidebar"
           theme="dark"
           mode="inline"
           defaultSelectedKeys={[""]}
         >
-          
-
           <Menu.Item key="1" icon={<HomeOutlined />}>
             <Link to="/">Dashboard</Link>
           </Menu.Item>
@@ -65,6 +62,9 @@ function AdminLayout({ children }) {
           </Menu.Item>
           <Menu.Item key="7" icon={<FundViewOutlined />}>
             <Link to="/funfacts-list"> Fun Facts List</Link>
+          </Menu.Item>
+          <Menu.Item key="8" icon={<FundViewOutlined />}>
+            <Link to="/jeepney-routes"> Jeepney Routes </Link>
           </Menu.Item>
         </Menu>
       </Sider>

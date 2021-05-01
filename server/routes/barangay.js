@@ -96,6 +96,22 @@ router.post("/search_barangays", (req, res) => {
     .catch((error) => console.log(error));
 });
 
+router.post("/search_barangay_id", (req, res) => {
+  let { value } = req.body;
+
+  Barangay.findAll({
+    where: {
+      id: {
+        [Op.like]: value,
+      },
+    },
+  })
+    .then((_res) => {
+      res.json(_res);
+    })
+    .catch((error) => console.log(error));
+});
+
 router.post("/add_barangay", (req, res) => {
   console.log("add to barangay table");
   let { barangayName, location, barangayDescription } = req.body;
